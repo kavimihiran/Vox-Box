@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "720073720879",
+    "firebase_url": "https://vox-box-334f6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "vox-box-334f6",
+    "storage_bucket": "vox-box-334f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720073720879:android:63eef3e4f50c4a43b172da",
+        "android_client_info": {
+          "package_name": "com.example.vox_box"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720073720879-2k0k25bsujdleil94mosm9np804p17fj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW0lLULXC_r1HOTCgWfWXeEImmr9rq7WA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720073720879-2k0k25bsujdleil94mosm9np804p17fj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
