@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../controllers/room_controller.dart';
+import 'package:vox_box/Utils/colors.dart';
+import 'chat_screen.dart'; // Your chat screen file
 
 class RoomScreen extends StatefulWidget {
   const RoomScreen({Key? key}) : super(key: key);
@@ -8,87 +11,80 @@ class RoomScreen extends StatefulWidget {
 }
 
 class _RoomScreenState extends State<RoomScreen> {
+  final TextEditingController _boxNameController = TextEditingController();
+  final RoomController _roomControllerCreate = RoomController();
+
   bool _isPopupOpen = false;
   bool _isCreateNewOpen = false;
   bool _isJoinOpen = false;
-  TextEditingController _boxNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text(
-            'My Boxes',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Stack(
-          children: [
-            Container(
-              color: Colors.green,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(24.0),
-                          topRight: Radius.circular(24.0),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Boxes'),
+        centerTitle: true,
+        backgroundColor: customColor,
+      ),
+      body: Stack(
+        children: [
+          Container(
+            color: customColor,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24.0),
+                        topRight: Radius.circular(24.0),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 10.0,
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 10.0,
+                      ],
+                    ),
+                    padding: const EdgeInsets.all(16.0),
+                    margin: const EdgeInsets.only(top: 20.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          'Please create a new box or join an existing one.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
-                      ),
-                      padding: EdgeInsets.all(16.0),
-                      margin: EdgeInsets.only(top: 20.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Please create a new box or join an existing one.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 20.0),
-                          // Display existing boxes or relevant content here
-                        ],
-                      ),
+                        ),
+                        SizedBox(height: 20.0),
+                        // Display existing boxes or relevant content here
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            if (_isPopupOpen) _buildOptionsContainer(),
-            if (_isCreateNewOpen) _buildCreateNewPopup(),
-            if (_isJoinOpen) _buildJoinPopup(),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              _isPopupOpen = !_isPopupOpen;
-            });
-          },
-          backgroundColor: Colors.green,
-          child: Icon(Icons.add),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+          ),
+          if (_isPopupOpen) _buildOptionsContainer(),
+          if (_isCreateNewOpen) _buildCreateNewPopup(),
+          if (_isJoinOpen) _buildJoinPopup(),
+        ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _isPopupOpen = !_isPopupOpen;
+          });
+        },
+        backgroundColor: customColor,
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 
@@ -101,7 +97,7 @@ class _RoomScreenState extends State<RoomScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black12,
               blurRadius: 5.0,
@@ -121,7 +117,7 @@ class _RoomScreenState extends State<RoomScreen> {
                 });
               },
               child: Container(
-                padding: EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   border: Border(
@@ -131,7 +127,7 @@ class _RoomScreenState extends State<RoomScreen> {
                     ),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'Create new',
                   style: TextStyle(
                     fontSize: 16.0,
@@ -149,9 +145,9 @@ class _RoomScreenState extends State<RoomScreen> {
                 });
               },
               child: Container(
-                padding: EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0),
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   'Join a box',
                   style: TextStyle(
                     fontSize: 16.0,
@@ -179,11 +175,11 @@ class _RoomScreenState extends State<RoomScreen> {
           alignment: Alignment.center,
           child: Container(
             width: 300.0,
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black12,
                   blurRadius: 10.0,
@@ -194,7 +190,7 @@ class _RoomScreenState extends State<RoomScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
+                const Text(
                   'Create New Box',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -202,42 +198,55 @@ class _RoomScreenState extends State<RoomScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(color: Colors.green),
                   ),
                   child: TextField(
                     controller: _boxNameController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Box Name',
                       border: InputBorder.none,
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 ElevatedButton(
-                  onPressed: () {
-                    // Implement logic for creating a new box
-                    setState(() {
-                      _isCreateNewOpen = false;
-                    });
-                    // Access _boxNameController.text for the box name entered
-                    String boxName = _boxNameController.text;
-                    // Add your logic here to create the box with the given name
-                    // For now, just print the box name
-                    print('Creating new box: $boxName');
+                  onPressed: () async {
+                    String boxName = _boxNameController.text.trim();
+                    if (boxName.isNotEmpty) {
+                      String roomId =
+                          await _roomControllerCreate.createRoom(boxName);
+                      if (roomId.isNotEmpty) {
+                        if (mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChatScreen(roomId: roomId),
+                            ),
+                          );
+                        }
+                        _boxNameController.clear();
+                      } else {
+                        print("empty");
+                        // Handle error
+                      }
+                    } else {
+                      // Handle empty box name
+                      print('Box name cannot be empty.');
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.green,
-                    padding: EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(12.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  child: Text('Create'),
+                  child: const Text('Create'),
                 ),
               ],
             ),
@@ -260,11 +269,11 @@ class _RoomScreenState extends State<RoomScreen> {
           alignment: Alignment.center,
           child: Container(
             width: 300.0,
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black12,
                   blurRadius: 10.0,
@@ -275,17 +284,67 @@ class _RoomScreenState extends State<RoomScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  'Join a Box',
+                const Text(
+                  'Join Box',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 20.0),
-                // Add UI components for joining a box (if needed)
-                Text('Join functionality to be implemented'),
+                const SizedBox(height: 20.0),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(color: Colors.green),
+                  ),
+                  child: TextField(
+                    controller: _boxNameController,
+                    decoration: const InputDecoration(
+                      hintText: 'Room ID',
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () async {
+                    String roomId = _boxNameController.text.trim();
+                    if (roomId.isNotEmpty) {
+                      bool roomExists =
+                          await _roomControllerCreate.joinRoom(roomId);
+                      if (roomExists) {
+                        if (mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChatScreen(roomId: roomId),
+                            ),
+                          );
+                        }
+                      } else {
+                        print('Room does not exist.');
+                        // Handle room not existing
+                      }
+                      _boxNameController.clear();
+                      setState(() {
+                        _isJoinOpen = false;
+                      });
+                    } else {
+                      // Handle empty room ID
+                      print('Room ID cannot be empty.');
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.green,
+                    padding: const EdgeInsets.all(12.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: const Text('Join'),
+                ),
               ],
             ),
           ),

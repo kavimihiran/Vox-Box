@@ -1,35 +1,49 @@
 {
   "project_info": {
-    "project_number": "720073720879",
-    "firebase_url": "https://vox-box-334f6-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "vox-box-334f6",
-    "storage_bucket": "vox-box-334f6.appspot.com"
+    "project_number": "887479032256",
+    "project_id": "voxbox-project",
+    "storage_bucket": "voxbox-project.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:720073720879:android:63eef3e4f50c4a43b172da",
+        "mobilesdk_app_id": "1:887479032256:android:47749db4b12faabc3e1025",
         "android_client_info": {
           "package_name": "com.example.vox_box"
         }
       },
       "oauth_client": [
         {
-          "client_id": "720073720879-2k0k25bsujdleil94mosm9np804p17fj.apps.googleusercontent.com",
+          "client_id": "887479032256-pek6ncme3paa5mgaij4skhpul1sdpj6k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vox_box",
+            "certificate_hash": "550e7d8a4b7d4538945a4421d5925ac93446fb77"
+          }
+        },
+        {
+          "client_id": "887479032256-09kain0ovgldmcb1pims22h7r0ev7g4i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCW0lLULXC_r1HOTCgWfWXeEImmr9rq7WA"
+          "current_key": "AIzaSyCL12YDxn2z7SDcn9frpqyjqV64nldQgRU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "720073720879-2k0k25bsujdleil94mosm9np804p17fj.apps.googleusercontent.com",
+              "client_id": "887479032256-09kain0ovgldmcb1pims22h7r0ev7g4i.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "887479032256-3doace1788u96tmeel10gv7virmqsig1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.voxBox"
+              }
             }
           ]
         }

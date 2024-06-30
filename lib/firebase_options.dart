@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,9 +28,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -40,56 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyACcrZCGbL-DjeYQx7itjpd7_Id4LQfapk',
-    appId: '1:720073720879:web:78da9af3d78accc6b172da',
-    messagingSenderId: '720073720879',
-    projectId: 'vox-box-334f6',
-    authDomain: 'vox-box-334f6.firebaseapp.com',
-    databaseURL: 'https://vox-box-334f6-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'vox-box-334f6.appspot.com',
-    measurementId: 'G-41MYS770M8',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCW0lLULXC_r1HOTCgWfWXeEImmr9rq7WA',
-    appId: '1:720073720879:android:63eef3e4f50c4a43b172da',
-    messagingSenderId: '720073720879',
-    projectId: 'vox-box-334f6',
-    databaseURL: 'https://vox-box-334f6-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'vox-box-334f6.appspot.com',
+    apiKey: 'AIzaSyCL12YDxn2z7SDcn9frpqyjqV64nldQgRU',
+    appId: '1:887479032256:android:47749db4b12faabc3e1025',
+    messagingSenderId: '887479032256',
+    projectId: 'voxbox-project',
+    storageBucket: 'voxbox-project.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDkGRtMsuCH5Scs4WoHPF9fKutUGUxX6Ls',
-    appId: '1:720073720879:ios:daff0f90fa66ebc8b172da',
-    messagingSenderId: '720073720879',
-    projectId: 'vox-box-334f6',
-    databaseURL: 'https://vox-box-334f6-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'vox-box-334f6.appspot.com',
-    iosClientId: '720073720879-gs9829kmn6d54dnlighrtro58rm4ibl6.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCauifhwCWJqI_DrehPmXqFLKvFCX9NgpQ',
+    appId: '1:887479032256:ios:657443bed9e187933e1025',
+    messagingSenderId: '887479032256',
+    projectId: 'voxbox-project',
+    storageBucket: 'voxbox-project.appspot.com',
     iosBundleId: 'com.example.voxBox',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDkGRtMsuCH5Scs4WoHPF9fKutUGUxX6Ls',
-    appId: '1:720073720879:ios:daff0f90fa66ebc8b172da',
-    messagingSenderId: '720073720879',
-    projectId: 'vox-box-334f6',
-    databaseURL: 'https://vox-box-334f6-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'vox-box-334f6.appspot.com',
-    iosClientId: '720073720879-gs9829kmn6d54dnlighrtro58rm4ibl6.apps.googleusercontent.com',
-    iosBundleId: 'com.example.voxBox',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyACcrZCGbL-DjeYQx7itjpd7_Id4LQfapk',
-    appId: '1:720073720879:web:4e5c06240b0ecdb2b172da',
-    messagingSenderId: '720073720879',
-    projectId: 'vox-box-334f6',
-    authDomain: 'vox-box-334f6.firebaseapp.com',
-    databaseURL: 'https://vox-box-334f6-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'vox-box-334f6.appspot.com',
-    measurementId: 'G-5TDGB2YYJD',
   );
 }
